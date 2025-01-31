@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* nav menu related css */
+.nav_menu > li > a.active {
+  color: #a855f7;
+}
+
+body {
+  background-color: hsl(0, 0%, 99.5%);
+  font-family: "Roboto", sans-serif;
+}
+
+.cover_page_wrapper {
+  width: 795.276px;
+  padding: 100px 84px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: rgba(1, 102, 214, 0.3) 0px 0px 0px 1.5px;
+  border: 1px solid rgba(3, 102, 214, 0.3);
+}
+
+select {
+  cursor: pointer;
+}
