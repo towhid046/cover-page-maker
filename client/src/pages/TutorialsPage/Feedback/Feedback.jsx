@@ -26,7 +26,7 @@ const Feedback = () => {
         data
       );
       if (res?.status === 200) {
-        toast.success("Thanks for you feedback!!");
+        toast.success("Thanks for your feedback!!");
         reset();
       }
     } catch (error) {

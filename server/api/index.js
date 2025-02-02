@@ -1,9 +1,10 @@
 // dependencies
 import express from "express";
-import connectDB from "../src/config/connectDB.js";
 import cors from "cors";
 import dotenv from "dotenv";
+import connectDB from "../src/config/connectDB.js";
 import counterRoute from "../src/route/counter.route.js";
+import emailRoute from "../src/route/email.route.js";
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ connectDB();
 
 // Routers
 app.use("/api/v1", counterRoute);
+app.use("/api/v1", emailRoute);
 
 // listen the PORT
 app.listen(process.env.PORT, () => console.log("Server ready on port 5000."));

@@ -30,7 +30,7 @@ const GenericPdfDownloader = ({ rootElementId, downloadFileName }) => {
         pdf.internal.pageSize.getHeight()
       );
       pdf.save(`${downloadFileName}.pdf`);
-      await axios.put(`${import.meta.env.VITE_NEW_SERVER_URL}/api/v1/counter`, { 'count': 1, isAuthUser: false })
+      await axios.put(`${import.meta.env.VITE_SERVER_URL}/counter`, { 'count': 1, isAuthUser: false })
     } catch (error) {
       console.error("Error generating PDF:", error);
     } finally {
