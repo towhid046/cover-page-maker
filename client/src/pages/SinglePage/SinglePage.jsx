@@ -41,7 +41,7 @@ const SinglePage = () => {
 
   const handleGetMore = () => {
     swal({
-      title: "Wanna Get More?",
+      title: "Want to Get More?",
       text: "To get more templates you need to login!",
       icon: "info",
       buttons: {

@@ -1,4 +1,4 @@
-// univesities name
+// universities name
 const universities = [
   { name: "Bangabandhu Sheikh Mujibur Rahman Science and Technology University", location: "Gopalganj", zipCode: 8100, shortName: "BSMRSTU" },
   { name: "Bangladesh Agricultural University", location: "Mymensingh", zipCode: 2202, shortName: "BAU" },
@@ -27,7 +27,7 @@ const universities = [
   { name: "University of Dhaka", location: "Dhaka", zipCode: 1000, shortName: "DU" },
 ];
 
-//   dapartment name
+//   department name
 const departments = [
   { name: "Accounting and Information Systems", sortName: "AIS" },
   { name: "Agriculture", sortName: "AGR" },

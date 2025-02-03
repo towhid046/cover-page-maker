@@ -3,7 +3,7 @@ import { useState } from "react";
 import Button from "../../shared/Button/Button";
 import useScrollToTop from "./../../../hooks/useScrollToTop";
 import { scrollToBottom } from "./../../utilities/scrollToBottom";
-import { data } from "./../../../database/universitiesName";
+import { data } from "./../../../database/data";
 import { useForm } from "react-hook-form";
 import GroupCoverPage from "../GroupCoverPage/GroupCoverPage";
 const { universities, departments, ordinalNumbers, teacherTitles, sessions } =

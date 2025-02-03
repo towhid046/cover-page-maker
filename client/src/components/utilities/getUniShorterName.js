@@ -1,4 +1,4 @@
-import { data } from "../../database/universitiesName";
+import { data } from "../../database/data";
 const { universities } = data;
 
 const getUniShorterName = (uniName) => {
@@ -6,9 +6,9 @@ const getUniShorterName = (uniName) => {
     return "Select varsity";
   } else {
     const zip = parseInt(uniName.split("-")[1]);
-    
+
     const targetedName = universities.find(
-      (versity) => versity.zipCode === zip
+      (versity) => varsity.zipCode === zip
     );
     return targetedName.shortName;
   }

@@ -1,4 +1,4 @@
-import { data } from "../../database/universitiesName";
+import { data } from "../../database/data";
 const { departments } = data;
 
 const sorterDepartment = (deptName) => {
