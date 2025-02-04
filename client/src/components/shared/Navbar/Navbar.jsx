@@ -1,12 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
-import Button from "../Button/Button";
+import Button from "@/components/shared/Button/Button";
 import { IoMdMenu } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 import ResponsiveMenu from "./ResponsiveMenu/ResponsiveMenu";
-import useAuth from "./../../../hooks/useAuth";
+import useAuth from "@/hooks/useAuth";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { div } from "framer-motion/client";
 
 export const links = [
   { id: 1, label: "Home", link: "/" },
@@ -36,11 +35,10 @@ const Navbar = () => {
           <div className="flex items-center gap-2">
             <button
               className={`text-xl md:hidden flex p-1.5 rounded-full 
-              ${
-                isToggle
+              ${isToggle
                   ? "bg-gradient-to-r from-pink-400  to-indigo-400 text-white"
                   : "bg-gradient-to-r from-indigo-400  to-pink-400 text-white"
-              }`}
+                }`}
               onClick={() => setIsToggle(!isToggle)}
             >
               {isToggle ? <RxCross2 /> : <IoMdMenu />}

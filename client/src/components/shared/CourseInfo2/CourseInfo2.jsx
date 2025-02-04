@@ -1,7 +1,9 @@
-const CourseInfo2 = ({studentDepartment, courseName, courseCode, year, semester, session, customClass='text-lg space-y-1'}) => {
+import PropTypes from 'prop-types';
+
+const CourseInfo2 = ({ studentDepartment, courseName, courseCode, year, semester, session, customClass = 'text-lg space-y-1' }) => {
   return (
     <div className={`font-semibold  ${customClass}`}>
-     {studentDepartment && <p>
+      {studentDepartment && <p>
         <span className="italic w-[150px] inline-block">Department</span>:{" "}
         {studentDepartment}
       </p>}
@@ -26,6 +28,16 @@ const CourseInfo2 = ({studentDepartment, courseName, courseCode, year, semester,
       </p>
     </div>
   );
+};
+
+CourseInfo2.propTypes = {
+  studentDepartment: PropTypes.string.isRequired,
+  courseName: PropTypes.string.isRequired,
+  courseCode: PropTypes.string.isRequired,
+  year: PropTypes.number.isRequired,
+  semester: PropTypes.string.isRequired,
+  session: PropTypes.string.isRequired,
+  customClass: PropTypes.string,
 };
 
 export default CourseInfo2;

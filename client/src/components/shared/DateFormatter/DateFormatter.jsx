@@ -1,4 +1,6 @@
-export default function DateFormater({ submissionDate }) {
+import PropTypes from 'prop-types';
+
+const DateFormatter = ({ submissionDate }) => {
   const [a, b, c] = submissionDate.split("-").reverse();
 
   const months = [
@@ -31,4 +33,8 @@ export default function DateFormater({ submissionDate }) {
   );
 }
 
+DateFormatter.propTypes = {
+  submissionDate: PropTypes.string.isRequired,
+};
 
+export default DateFormatter;

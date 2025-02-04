@@ -1,10 +1,11 @@
-import { useState } from "react";
-import { CoverPage } from "./CoverPage";
-
-import { data } from "@/database/data";
 import Button from "@/components/shared/Button/Button";
+import { data } from "@/database/data";
 import { scrollToBottom } from "@/utilities/scrollToBottom";
-import useScrollToTop from "../hooks/useScrollToTop";
+import PropTypes from 'prop-types';
+import { useState } from "react";
+import useScrollToTop from "../../../hooks/useScrollToTop";
+import SingleCoverPage from "../SingleCoverPage/SingleCoverPage";
+
 const { universities, departments, ordinalNumbers, teacherTitles, sessions } =
   data;
 
@@ -12,7 +13,7 @@ const commonInputClassName =
   "py-1.5 px-4 border border-blue-400 border-opacity-60 rounded-md focus:outline-none transition duration-300";
 const inputParentClassName = "flex flex-col gap-1 text-lg mb-3";
 
-const Form = ({ pageId }) => {
+const SingleForm = ({ pageId }) => {
   useScrollToTop();
 
   const [pageData, setPageData] = useState([]);
@@ -295,9 +296,12 @@ const Form = ({ pageId }) => {
 
       {/* Send data to Page component */}
       {pageData.map((item, index) => (
-        <CoverPage pageId={pageId} key={index} item={item} />
+        <SingleCoverPage pageId={pageId} key={index} item={item} />
       ))}
     </>
   );
 };
-export default Form;
+export default SingleForm;
+SingleForm.propTypes = {
+  pageId: PropTypes.number.isRequired
+}

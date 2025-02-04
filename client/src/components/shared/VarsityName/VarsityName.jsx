@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 
 const VarsityName = ({ varsityName, customClass }) => {
   return (
@@ -7,6 +8,11 @@ const VarsityName = ({ varsityName, customClass }) => {
       </h1>
     </div>
   );
+};
+
+VarsityName.propTypes = {
+  varsityName: PropTypes.string.isRequired,
+  customClass: PropTypes.string,
 };
 
 export default VarsityName;

@@ -1,15 +1,13 @@
-/* eslint-disable react/prop-types */
-import "./../../src/index.css";
-import GenericPdfDownloader from "./DownloadPdf";
-
-
-import sorterDepartment from "@/utilities/sorterDepartment";
-import getUniShorterName from "@/utilities/getUniShorterName";
+import { SINGLE_DATA_TYPES } from "@/lib/singleDataTypes";
 import { generateLogo } from '@/utilities/generateLogo';
+import getUniShorterName from "@/utilities/getUniShorterName";
 import { pages } from '@/utilities/pages';
+import sorterDepartment from "@/utilities/sorterDepartment";
+import PropTypes from 'prop-types';
+import GenericPdfDownloader from "../../DownloadPdf";
+import "../../../../src/index.css";
 
-
-export const CoverPage = ({ item, pageId }) => {
+const SingleCoverPage = ({ item, pageId }) => {
   const { courseCode, studentId } = item;
   const zipCode = parseInt(item.varsityName.split("-")[1]);
   const logo = generateLogo(zipCode);
@@ -45,8 +43,8 @@ export const CoverPage = ({ item, pageId }) => {
         <div id="testId" className="cover_page_wrapper shadow-2xl bg-white mb-12">
           {renderPage(pageId + 1)}
         </div>
-
       </div>
+
       {courseCode !== undefined && (
         <GenericPdfDownloader
           downloadFileName={`${studentId}`}
@@ -55,4 +53,11 @@ export const CoverPage = ({ item, pageId }) => {
       )}
     </section>
   );
+};
+
+export default SingleCoverPage;
+
+SingleCoverPage.propTypes = {
+  ...SINGLE_DATA_TYPES,
+  pageId: PropTypes.number.isRequired
 };

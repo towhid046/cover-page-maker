@@ -1,9 +1,9 @@
-/* eslint-disable react/prop-types */
 import { useState } from "react";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 import { FaDownload } from "react-icons/fa";
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 const GenericPdfDownloader = ({ rootElementId, downloadFileName }) => {
   const [isDownloading, setIsDownloading] = useState(false);
@@ -48,6 +48,11 @@ const GenericPdfDownloader = ({ rootElementId, downloadFileName }) => {
       <FaDownload />
     </button>
   );
+};
+
+GenericPdfDownloader.propTypes = {
+  rootElementId: PropTypes.string.isRequired,
+  downloadFileName: PropTypes.string.isRequired,
 };
 
 export default GenericPdfDownloader;

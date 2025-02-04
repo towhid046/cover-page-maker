@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Button = ({ children, customClass, clickHandler }) => {
   return (
     <button
@@ -10,3 +12,9 @@ const Button = ({ children, customClass, clickHandler }) => {
 };
 
 export default Button;
+
+Button.propTypes = {
+  children: PropTypes.node.isRequired,
+  customClass: PropTypes.string,
+  clickHandler: PropTypes.func
+}
