@@ -4,7 +4,10 @@ import useScrollToTop from "@/hooks/useScrollToTop";
 import { scrollToBottom } from "@/utilities/scrollToBottom";
 import { data } from "@/database/data";
 import { useForm } from "react-hook-form";
-import GroupCoverPage from "../GroupCoverPage/GroupCoverPage";
+import GroupCoverPage from "@/components/unique/GroupCoverPage/GroupCoverPage";
+import { zodResolver } from '@hookform/resolvers/zod';
+import { GROUP_PAGE_SCHEMA } from "@/lib/groupPageSchema";
+
 const { universities, departments, ordinalNumbers, teacherTitles, sessions } = data;
 
 const commonInputClassName = "py-1.5 px-4 border border-blue-400 border-opacity-60 rounded-md focus:outline-none transition duration-300";
@@ -12,7 +15,9 @@ const inputParentClassName = "flex flex-col gap-1 text-lg mb-3";
 
 export const GroupForm = () => {
   useScrollToTop();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: zodResolver(GROUP_PAGE_SCHEMA)
+  });
   const [groupData, setGroupData] = useState({});
 
   // handel form submit:
@@ -36,14 +41,14 @@ export const GroupForm = () => {
               {/* varsity name */}
               <div className={inputParentClassName}>
                 <label>
-                  <span>University Name:</span>
+                  <span>University Name: {errors?.varsityName?.message && <small className="text-red-500 italic">{errors?.varsityName?.message}</small>}</span>
                 </label>
                 <select
                   className={`${commonInputClassName} py-2.5`}
                   {...register("varsityName")}
-                  required
+                // required
                 >
-                  <option className="text-gray-400">Select your varsity</option>
+                  <option value={''} className="text-gray-400">Select your varsity</option>
                   {universities.map((varsity, index) => (
                     <option
                       key={index}
@@ -58,7 +63,7 @@ export const GroupForm = () => {
               {/* topic name */}
               <div className={inputParentClassName}>
                 <label>
-                  <span className="">Assignment Title:</span>
+                  <span>Assignment Title: {errors?.assignmentTitle?.message && <small className="text-red-500 italic">{errors?.assignmentTitle?.message}</small>}</span>
                 </label>
                 <input
                   required
@@ -71,7 +76,7 @@ export const GroupForm = () => {
               {/* course name */}
               <div className={inputParentClassName}>
                 <label>
-                  <span>Course Name:</span>
+                  <span>Course Name: {errors?.courseName?.message && <small className="text-red-500 italic">{errors?.courseName?.message}</small>}</span>
                 </label>{" "}
                 <input
                   required
@@ -84,7 +89,7 @@ export const GroupForm = () => {
               {/* course code */}
               <div className={inputParentClassName}>
                 <label>
-                  <span>Course Code:</span>
+                  <span>Course Code: {errors?.courseCode?.message && <small className="text-red-500 italic">{errors?.courseCode?.message}</small>}</span>
                 </label>{" "}
                 <input
                   required
@@ -97,14 +102,14 @@ export const GroupForm = () => {
               {/* year */}
               <div className={inputParentClassName}>
                 <label>
-                  <span>Select Year:</span>
+                  <span>Select Year: {errors?.year?.message && <small className="text-red-500 italic">{errors?.year?.message}</small>}</span>
                 </label>{" "}
                 <select
                   required
                   {...register("year")}
                   className={`${commonInputClassName} py-2.5`}
                 >
-                  <option className="color_gray">Year</option>
+                  <option value={''} className="text-gray-400">Year</option>
                   {ordinalNumbers.map((year, index) => (
                     <option key={index} value={year}>
                       {year}
@@ -115,14 +120,14 @@ export const GroupForm = () => {
               {/* semester */}
               <div className={inputParentClassName}>
                 <label>
-                  <span>Semester:</span>
+                  <span>Semester: {errors?.semester?.message && <small className="text-red-500 italic">{errors?.semester?.message}</small>}</span>
                 </label>{" "}
                 <select
                   required
                   {...register("semester")}
                   className={`${commonInputClassName} py-2.5`}
                 >
-                  <option className="color_gray">Semester</option>
+                  <option value={''} className="text-gray-400">Semester</option>
                   {ordinalNumbers.map((semester, index) => (
                     <option key={index} value={semester}>
                       {semester}
@@ -133,14 +138,14 @@ export const GroupForm = () => {
               {/* semester */}
               <div className={inputParentClassName}>
                 <label>
-                  <span>Session:</span>
+                  <span>Session: {errors?.session?.message && <small className="text-red-500 italic">{errors?.session?.message}</small>}</span>
                 </label>{" "}
                 <select
                   required
                   {...register("session")}
                   className={`${commonInputClassName} py-2.5`}
                 >
-                  <option className="color_gray">Session</option>
+                  <option value={''} className="text-gray-400">Session</option>
                   {sessions.map((session, index) => (
                     <option key={index} value={session}>
                       {session}
@@ -151,7 +156,7 @@ export const GroupForm = () => {
               {/* submission Date */}
               <div className={inputParentClassName}>
                 <label>
-                  <span>Date of submission:</span>
+                  <span>Date of submission: {errors?.submissionDate?.message && <small className="text-red-500 italic">{errors?.submissionDate?.message}</small>}</span>
                 </label>{" "}
                 <input
                   required
@@ -173,7 +178,7 @@ export const GroupForm = () => {
                 {/* Group Number */}
                 <div className={inputParentClassName}>
                   <label>
-                    <span>Group Number:</span>
+                    <span>Group Number: {errors?.groupNumber?.message && <small className="text-red-500 italic">{errors?.groupNumber?.message}</small>}</span>
                   </label>{" "}
                   <input
                     required
@@ -187,21 +192,21 @@ export const GroupForm = () => {
                 {/* your id: */}
                 <div className={inputParentClassName}>
                   <label>
-                    <span>Students Id: <em className="text-blue-300 text-[15px]">Write student id separated by comma `,`</em></span>
+                    <span>Students Ids <span className="text-blue-400">(separated by comma):</span> {errors?.studentIds?.message && <small className="text-red-500 italic">{errors?.studentIds?.message}</small>}</span>
                   </label>
                   <textarea
                     title="Write Student Id separated by comma ','"
                     className={commonInputClassName}
                     required
                     {...register("studentIds")}
-                    placeholder="Type students Id like: 19PAD030,19PAD035,19PAD020 ..."
+                    placeholder="eg: 19PAD030,19PAD035,19PAD020 ..."
                   ></textarea>{" "}
                 </div>
 
                 {/* student Department name */}
                 <div className={inputParentClassName}>
                   <label>
-                    <span>Department:</span>
+                    <span>Department: {errors?.studentDepartment?.message && <small className="text-red-500 italic">{errors?.studentDepartment?.message}</small>}</span>
                   </label>
                   <select
                     required
@@ -209,7 +214,7 @@ export const GroupForm = () => {
                     {...register("studentDepartment")}
                     className={`${commonInputClassName} py-2.5`}
                   >
-                    <option className="color_gray">Your department</option>
+                    <option value={''} className="text-gray-400">Your department</option>
                     {departments.map((department, index) => (
                       <option key={index} value={department.name}>
                         {department.name}
@@ -221,12 +226,12 @@ export const GroupForm = () => {
 
               <div className="teacher_info">
                 <h2 className="italic underline font-semibold text-2xl text-center mb-2">
-                  Teacher's Information:
+                  Teacher&apos;s Information:
                 </h2>
                 {/* Teacher name */}
                 <div className={inputParentClassName}>
                   <label>
-                    <span>Teacher's name:</span>
+                    <span>Teacher&apos;s name: {errors?.teacherName?.message && <small className="text-red-500 italic">{errors?.teacherName?.message}</small>}</span>
                   </label>
                   <input
                     required
@@ -239,14 +244,14 @@ export const GroupForm = () => {
                 {/* Teacher title: */}
                 <div className={inputParentClassName}>
                   <label>
-                    <span>Teacher's Title:</span>
+                    <span>Teacher&apos;s Title: {errors?.teacherTitle?.message && <small className="text-red-500 italic">{errors?.teacherTitle?.message}</small>}</span>
                   </label>
                   <select
                     required
                     {...register("teacherTitle")}
                     className={`${commonInputClassName} py-2.5`}
                   >
-                    <option className="text-gray-400">Teacher's title</option>
+                    <option value={''} className="text-gray-400">Teacher&apos;s title</option>
                     {teacherTitles.map((teacherTitle, index) => (
                       <option key={index} value={`${teacherTitle},`}>
                         {teacherTitle}
@@ -257,14 +262,14 @@ export const GroupForm = () => {
                 {/* Teacher Department name */}
                 <div className={inputParentClassName}>
                   <label>
-                    <span>Teacher's Department:</span>
+                    <span>Teacher&apos;s Department: {errors?.teacherDepartment?.message && <small className="text-red-500 italic">{errors?.teacherDepartment?.message}</small>}</span>
                   </label>{" "}
                   <select
                     required
                     {...register("teacherDepartment")}
                     className={`${commonInputClassName} py-2.5`}
                   >
-                    <option className="color_gray">Teacher's department</option>
+                    <option value={''} className="text-gray-400">Teacher&apos;s department</option>
                     {departments.map((department, index) => (
                       <option key={index} value={department.name}>
                         {department.name}
