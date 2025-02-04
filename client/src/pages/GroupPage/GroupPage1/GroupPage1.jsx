@@ -1,12 +1,10 @@
 /* eslint-disable react/prop-types */
 import "./../../../index.css";
-import Logo from "./../../../components/shared/Logo/Logo";
-import VarsityName from "./../../../components/shared/VarsityName/VarsityName";
-import DeptName from "./../../../components/shared/DeptName/DeptName";
-import AssignmentTitle from "./../../../components/shared/AssignmentTitle/AssignmentTitle";
-import CourseInfo from "./../../../components/shared/CourseInfo/CourseInfo";
-import SubmitDate from "./../../../components/shared/SubmitDate/SubmitDate";
-import DateFormater from "../../../components/shared/DateFormater/DateFormater";
+import Logo from "@/components/shared/Logo/Logo";
+import VarsityName from "@/components/shared/VarsityName/VarsityName";
+import AssignmentTitle from "@/components/shared/AssignmentTitle/AssignmentTitle";
+import CourseInfo from "@/components/shared/CourseInfo/CourseInfo";
+import DateFormatter from "@/components/shared/DateFormatter/DateFormatter";
 
 const GroupPage1 = ({
   item,
@@ -98,7 +96,7 @@ const GroupPage1 = ({
             >
               <p>Date of submission:</p>
               <p className="text-[#91c462e7]">
-                <DateFormater submissionDate={submissionDate} />
+                <DateFormatter submissionDate={submissionDate} />
               </p>
             </div>
           </div>

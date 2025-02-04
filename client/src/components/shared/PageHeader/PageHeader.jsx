@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const PageHeader = ({ isClicked }) => {
   return (
     <div className="container mx-auto px-4">
@@ -8,6 +10,10 @@ const PageHeader = ({ isClicked }) => {
       </p>
     </div>
   );
+};
+
+PageHeader.propTypes = {
+  isClicked: PropTypes.bool.isRequired,
 };
 
 export default PageHeader;

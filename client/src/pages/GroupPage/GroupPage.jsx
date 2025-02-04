@@ -1,18 +1,14 @@
-import useScrollToTop from "./../../hooks/useScrollToTop";
-import groupPage1 from "../../assets/img/display-pages/group_page_1.jpg";
-// import img2nd from "../../assets/img/display-pages/2nd.jpg";
-// import img3rd from "../../assets/img/display-pages/3rd.jpg";
+import useScrollToTop from "@/hooks/useScrollToTop";
+import groupPage1 from "@/assets/img/display-pages/group_page_1.jpg";
 import { useState } from "react";
-import { GroupForm } from "./../../components/unique/GroupForm/GroupForm";
-import Reveal from "./../../components/shared/Reveal/Reveal";
-import PageHeader from "./../../components/shared/PageHeader/PageHeader";
-import Button from "../../components/shared/Button/Button";
+import { GroupForm } from "@/components/unique/GroupForm/GroupForm";
+import Reveal from "@/components/shared/Reveal/Reveal";
+import PageHeader from "@/components/shared/PageHeader/PageHeader";
+import Button from "@/components/shared/Button/Button";
 
 const GroupPage = () => {
   useScrollToTop();
   const [isClicked, setIsClicked] = useState(false);
-  // const [pageId, setPageId] = useState(null);
-  // const imgs = [img1st, img2nd, img3rd,];
 
   function scrollToTop() {
     window.scrollTo({

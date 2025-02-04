@@ -1,6 +1,8 @@
 import { links } from "../Navbar";
 import { NavLink } from "react-router-dom";
 import { BiSolidDownArrow } from "react-icons/bi";
+import PropTypes from 'prop-types';
+
 const ResponsiveMenu = ({ setIsToggle }) => {
   return (
     <nav
@@ -29,6 +31,10 @@ const ResponsiveMenu = ({ setIsToggle }) => {
       </div>
     </nav>
   );
+};
+
+ResponsiveMenu.propTypes = {
+  setIsToggle: PropTypes.func.isRequired,
 };
 
 export default ResponsiveMenu;

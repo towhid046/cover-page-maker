@@ -1,16 +1,13 @@
 import { useState } from "react";
-
-import Button from "../../shared/Button/Button";
-import useScrollToTop from "./../../../hooks/useScrollToTop";
-import { scrollToBottom } from "./../../utilities/scrollToBottom";
-import { data } from "./../../../database/universitiesName";
+import Button from "@/components/shared/Button/Button";
+import useScrollToTop from "@/hooks/useScrollToTop";
+import { scrollToBottom } from "@/utilities/scrollToBottom";
+import { data } from "@/database/data";
 import { useForm } from "react-hook-form";
 import GroupCoverPage from "../GroupCoverPage/GroupCoverPage";
-const { universities, departments, ordinalNumbers, teacherTitles, sessions } =
-  data;
+const { universities, departments, ordinalNumbers, teacherTitles, sessions } = data;
 
-const commonInputClassName =
-  "py-1.5 px-4 border border-blue-400 border-opacity-60 rounded-md focus:outline-none transition duration-300";
+const commonInputClassName = "py-1.5 px-4 border border-blue-400 border-opacity-60 rounded-md focus:outline-none transition duration-300";
 const inputParentClassName = "flex flex-col gap-1 text-lg mb-3";
 
 export const GroupForm = () => {

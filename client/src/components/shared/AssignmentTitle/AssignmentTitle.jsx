@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types';
 
-
-const AssignmentTitle = ({assignmentTitle, customClass='text-xl'}) => {
+const AssignmentTitle = ({ assignmentTitle, customClass = 'text-xl' }) => {
   return (
     <div className={`font-semibold  text-center ${customClass}`}>
       <p className="italic text-[#91c462e7] mb-1">Assignment On</p>
@@ -10,3 +10,8 @@ const AssignmentTitle = ({assignmentTitle, customClass='text-xl'}) => {
 };
 
 export default AssignmentTitle;
+
+AssignmentTitle.propTypes = {
+  assignmentTitle: PropTypes.string.isRequired,
+  customClass: PropTypes.string
+}

@@ -1,19 +1,19 @@
-import "./../../../src/index.css";
-import useScrollToTop from "../../hooks/useScrollToTop";
+import img1st from "@/assets/img/display-pages/1st.jpg";
+import img2nd from "@/assets/img/display-pages/2nd.jpg";
+import img3rd from "@/assets/img/display-pages/3rd.jpg";
+import img4th from "@/assets/img/display-pages/4th.jpg";
+import img5th from "@/assets/img/display-pages/5th.jpg";
+import img6th from "@/assets/img/display-pages/6th.jpg";
+import Button from "@/components/shared/Button/Button";
+import PageHeader from "@/components/shared/PageHeader/PageHeader";
+import Reveal from "@/components/shared/Reveal/Reveal";
+import useAuth from "@/hooks/useAuth";
+import useScrollToTop from "@/hooks/useScrollToTop";
 import { useState } from "react";
-import Form from "../../components/Form";
-import img1st from "./../../assets/img/display-pages/1st.jpg";
-import img2nd from "./../../assets/img/display-pages/2nd.jpg";
-import img3rd from "./../../assets/img/display-pages/3rd.jpg";
-import img4th from "./../../assets/img/display-pages/4th.jpg";
-import img5th from "./../../assets/img/display-pages/5th.jpg";
-import img6th from "./../../assets/img/display-pages/6th.jpg";
-import useAuth from "./../../hooks/useAuth";
-import Button from "./../../components/shared/Button/Button";
-import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
-import Reveal from "./../../components/shared/Reveal/Reveal";
-import PageHeader from "./../../components/shared/PageHeader/PageHeader";
+import swal from "sweetalert";
+import Form from "@/components/unique/SingleForm/SingleForm";
+import "./../../../src/index.css";
 
 const SinglePage = () => {
   useScrollToTop();
@@ -41,7 +41,7 @@ const SinglePage = () => {
 
   const handleGetMore = () => {
     swal({
-      title: "Wanna Get More?",
+      title: "Want to Get More?",
       text: "To get more templates you need to login!",
       icon: "info",
       buttons: {

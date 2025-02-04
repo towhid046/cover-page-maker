@@ -1,16 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../layout/Root";
-import HomePage from "./../pages/HomePage/HomePage";
-import SinglePage from "./../pages/SinglePage/SinglePage";
-import GroupPage from "./../pages/GroupPage/GroupPage";
-import TutorialsPage from "./../pages/TutorialsPage/TutorialsPage";
-import LoginPage from "./../pages/LoginPage/LoginPage";
-import RegistrationPage from "./../pages/RegistrationPage/RegistrationPage";
+import HomePage from "@/pages/HomePage/HomePage";
+import SinglePage from "@/pages/SinglePage/SinglePage";
+import GroupPage from "@/pages/GroupPage/GroupPage";
+import TutorialsPage from "@/pages/TutorialsPage/TutorialsPage";
+import LoginPage from "@/pages/LoginPage/LoginPage";
+import RegistrationPage from "@/pages/RegistrationPage/RegistrationPage";
+import NotFoundPage from '@/pages/NotFoundPage/NotFoundPage';
 
 const routes = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <NotFoundPage />,
     children: [
       {
         path: "/",
