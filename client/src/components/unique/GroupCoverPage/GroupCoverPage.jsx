@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import '../../../../src/index.css';
 
-import GroupPage1 from "./../../../pages/GroupPage/GroupPage1/GroupPage1";
+import GroupPage1 from "@/pages/GroupPage/GroupPage1/GroupPage1";
 import GenericPdfDownloader from './../../DownloadPdf';
-import sorterDepartment from './../../utilities/sorterDepartment';
-import getUniShorterName from './../../utilities/getUniShorterName';
-import { generateLogo } from './../../utilities/generateLogo';
-import { pages } from './../../utilities/pages';
+import sorterDepartment from '@/utilities/sorterDepartment';
+import getUniShorterName from '@/utilities/getUniShorterName';
+import { generateLogo } from '@/utilities/generateLogo';
+// import { pages } from '@/utilities/pages';
 
 const GroupCoverPage = ({ item }) => {
   const { courseCode, groupNumber } = item;
@@ -21,22 +21,22 @@ const GroupCoverPage = ({ item }) => {
   const uniShortName = getUniShorterName(item.varsityName);
 
   // render the page based on user clicked:
-  const renderPage = (id) => {
-    const SelectedPage = pages[id];
-    if (SelectedPage) {
-      return (
-        <SelectedPage
-          item={item}
-          logo={logo}
-          studentSortDeptName={studentSortDeptName}
-          teacherSortDeptName={teacherSortDeptName}
-          uniShortName={uniShortName}
-        />
-      );
-    } else {
-      return <h2>Page not found</h2>;
-    }
-  };
+  // const renderPage = (id) => {
+  //   const SelectedPage = pages[id];
+  //   if (SelectedPage) {
+  //     return (
+  //       <SelectedPage
+  //         item={item}
+  //         logo={logo}
+  //         studentSortDeptName={studentSortDeptName}
+  //         teacherSortDeptName={teacherSortDeptName}
+  //         uniShortName={uniShortName}
+  //       />
+  //     );
+  //   } else {
+  //     return <h2>Page not found</h2>;
+  //   }
+  // };
 
   return (
     <section className="mx-auto px-4 container relative">

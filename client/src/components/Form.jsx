@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { CoverPage } from "./CoverPage";
 
-import { data } from "./../database/data";
-import Button from "./shared/Button/Button";
-import { scrollToBottom } from "./utilities/scrollToBottom";
+import { data } from "@/database/data";
+import Button from "@/components/shared/Button/Button";
+import { scrollToBottom } from "@/utilities/scrollToBottom";
 import useScrollToTop from "../hooks/useScrollToTop";
 const { universities, departments, ordinalNumbers, teacherTitles, sessions } =
   data;

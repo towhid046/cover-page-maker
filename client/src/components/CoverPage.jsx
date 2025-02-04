@@ -3,10 +3,10 @@ import "./../../src/index.css";
 import GenericPdfDownloader from "./DownloadPdf";
 
 
-import sorterDepartment from "./utilities/sorterDepartment";
-import getUniShorterName from "./utilities/getUniShorterName";
-import { generateLogo } from './utilities/generateLogo';
-import { pages } from './utilities/pages';
+import sorterDepartment from "@/utilities/sorterDepartment";
+import getUniShorterName from "@/utilities/getUniShorterName";
+import { generateLogo } from '@/utilities/generateLogo';
+import { pages } from '@/utilities/pages';
 
 
 export const CoverPage = ({ item, pageId }) => {
@@ -47,12 +47,12 @@ export const CoverPage = ({ item, pageId }) => {
         </div>
 
       </div>
-        {courseCode !== undefined && (
-          <GenericPdfDownloader
-            downloadFileName={`${studentId}`}
-            rootElementId="testId"
-          />
-        )}
+      {courseCode !== undefined && (
+        <GenericPdfDownloader
+          downloadFileName={`${studentId}`}
+          rootElementId="testId"
+        />
+      )}
     </section>
   );
 };
