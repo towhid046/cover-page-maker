@@ -1,7 +1,7 @@
 import '../../../../src/index.css';
 
 import GroupPage1 from "@/pages/GroupPage/GroupPage1/GroupPage1";
-import GenericPdfDownloader from './../../DownloadPdf';
+import GenericPdfDownloader from "@/utilities/GenericPdfDownloader";
 import sorterDepartment from '@/utilities/sorterDepartment';
 import getUniShorterName from '@/utilities/getUniShorterName';
 import { generateLogo } from '@/utilities/generateLogo';

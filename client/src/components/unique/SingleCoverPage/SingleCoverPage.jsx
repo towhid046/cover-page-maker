@@ -4,7 +4,7 @@ import getUniShorterName from "@/utilities/getUniShorterName";
 import { pages } from '@/utilities/pages';
 import sorterDepartment from "@/utilities/sorterDepartment";
 import PropTypes from 'prop-types';
-import GenericPdfDownloader from "../../DownloadPdf";
+import GenericPdfDownloader from "@/utilities/GenericPdfDownloader";
 import "../../../../src/index.css";
 
 const SingleCoverPage = ({ item, pageId }) => {
