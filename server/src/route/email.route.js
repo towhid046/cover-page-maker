@@ -1,9 +1,9 @@
 // dependencies
-const express = require('express')
-const { sendEmailHandler } = require('../controller/email.controller.js')
+import express from 'express';
+import { sendEmailHandler } from '../controller/email.controller.js';
 
 const emailRoute = express.Router()
 
 emailRoute.post('/send-email', sendEmailHandler)
 
-module.exports = emailRoute;
+export default emailRoute;

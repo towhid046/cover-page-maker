@@ -1,10 +1,10 @@
 // dependencies
-const express = require('express')
-const { getCounterHandler, updateCounterHandler } = require('../controller/counter.controller')
+import express from 'express'
+import { getCounterHandler, updateCounterHandler } from '../controller/counter.controller.js';
 
 const counterRoute = express.Router()
 
 counterRoute.get('/counter', getCounterHandler)
 counterRoute.put('/counter', updateCounterHandler)
 
-module.exports = counterRoute;
+export default counterRoute;

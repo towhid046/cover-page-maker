@@ -1,8 +1,6 @@
-const nodemailer = require('nodemailer')
+import nodemailer from 'nodemailer';
 
-const emailHandler = {}
-
-emailHandler.sendEmailHandler = async (req, res) => {
+export const sendEmailHandler = async (req, res) => {
     const { name, email, message } = req.body;
 
     if (!name && !email && !message) {
@@ -50,5 +48,3 @@ emailHandler.sendEmailHandler = async (req, res) => {
         res.status(500).send({ success: false, message: "Email failed to send!", error });
     }
 }
-
-module.exports = emailHandler;

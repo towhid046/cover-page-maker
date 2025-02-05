@@ -1,8 +1,8 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose';
 
 const counterSchema = new mongoose.Schema({
     count: Number,
     isAuthUser: Boolean,
 });
 
-module.exports = counterSchema;
+export default counterSchema;

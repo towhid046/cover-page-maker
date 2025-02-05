@@ -1,12 +1,10 @@
 // dependencies
-const counterSchema = require('../model/counter.model')
-const mongoose = require('mongoose')
+import counterSchema from '../model/counter.model.js'
+import mongoose from 'mongoose'
 
 const Counter = mongoose.model("Counter", counterSchema)
 
-const counterHandler = {}
-
-counterHandler.getCounterHandler = async (req, res) => {
+export const getCounterHandler = async (req, res) => {
     try {
         const { pass } = req.query;
 
@@ -28,7 +26,7 @@ counterHandler.getCounterHandler = async (req, res) => {
     }
 }
 
-counterHandler.updateCounterHandler = async (req, res) => {
+export const updateCounterHandler = async (req, res) => {
     try {
         const { count, isAuthUser } = req.body;
 
@@ -55,6 +53,3 @@ counterHandler.updateCounterHandler = async (req, res) => {
         res.status(500).send({ message: "Internal server error" });
     }
 }
-
-
-module.exports = counterHandler;

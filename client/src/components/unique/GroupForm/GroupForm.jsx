@@ -46,7 +46,7 @@ export const GroupForm = () => {
                 <select
                   className={`${commonInputClassName} py-2.5`}
                   {...register("varsityName")}
-                // required
+                  required
                 >
                   <option value={''} className="text-gray-400">Select your varsity</option>
                   {universities.map((varsity, index) => (
